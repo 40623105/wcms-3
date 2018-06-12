@@ -1,0 +1,11 @@
+def isAdmin():
+    if session.get('admin') == 1:
+            return True
+    else:
+        return False
+    
+定義 isAdmin：
+如果是管理者
+     回到正確
+    其他：
+     回到錯誤
