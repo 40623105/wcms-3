@@ -1,0 +1,9 @@
+@app.route('/logout')
+def logout():
+    按下logout.pop('admin' , None)
+    flash('已經登出!')
+    return redirect(url_for('login'))
+
+定義logout：
+按下logout(沒有管理者)
+就會回到有login的登入畫面
