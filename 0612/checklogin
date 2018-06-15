@@ -1,0 +1,18 @@
+@app.route('/checkLogin', methods=['POST'])
+def checkLogin():
+    password = request.form["password"]
+    site_title, saved_password = parse_config()
+    hashed_password = hashlib.sha512(password.encode('utf-8')).hexdigest()
+    if hashed_password == saved_password:
+        session['admin'] = 1
+        return redirect('/edit_page')
+    return redirect('/')
+    
+定義 checklogin
+    密碼：必須請求形成
+     標題位置、儲存密碼都要使用config
+    網站密碼是使用後面的程式
+    如果是網站密碼=要儲存密碼
+          管理者的網站會顯示"1"的數字在網址的最後面
+          然後回到 redirect(edit all的網址後面本來就顯示edit page)
+        *暫定不太會解釋意思*
